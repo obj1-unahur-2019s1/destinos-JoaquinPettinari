@@ -1,0 +1,58 @@
+import Viaje.*
+import ViajeACiudad.*
+import ViajeACiudadTropical.*
+import ViajeDeTrekking.*
+import ViajePlaya.*
+import ClaseDeGimnasia.*
+import Socio.*
+import TiposDeSocios.*
+
+//Despues de la creacion de los socios, hay un metodo abstracto que no permite creas un Socio()
+
+describe "Test Playa socio" {
+		var playita = new ViajePlaya(largoDeLaPlaya = 1000)
+		var playita2 = new ViajePlaya(largoDeLaPlaya = 2000)
+		var clase = new ClaseDeGimnasia()
+//		var joaco = new Socio(maximoDeActividades = 2)
+//		var ana = new Socio(maximoDeActividades = 3)
+	/*fixture{
+		joaco.realizarUnaActividad(playita)
+		joaco.realizarUnaActividad(playita2)
+		
+		ana.realizarUnaActividad(playita)
+		ana.realizarUnaActividad(playita2)
+		ana.realizarUnaActividad(clase)
+	} 
+	test "Adora El sol" {
+		assert.that(joaco.adoraElSol())
+
+	}
+	test "Actividades Esforzadas "{
+		assert.equals([playita2], joaco.implicoEsfuerzo())
+	}
+	test "Ana"{
+		assert.that(not ana.adoraElSol())
+	}
+	test "Actividades Esforzadas ana "{
+		assert.equals([playita2, clase], ana.implicoEsfuerzo())
+	}*/
+		var joaco = new Relajado()
+	fixture {
+		playita.idiomas(["Español", "Frances" ])
+		playita2.idiomas(["Español", "Frances" ])
+		joaco.idiomas(["Español"])
+	}
+	test "relajado"{
+		joaco.realizarUnaActividad(playita)
+		assert.that(joaco.leAtraeEstaActividad(playita))		
+				
+	}
+}
+
+
+
+
+
+
+
+
